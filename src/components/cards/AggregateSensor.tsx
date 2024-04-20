@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { FancyNumericSwitch } from './aggregate/FancyNumericSwitch';
 import { IconNoSwitch } from './aggregate/IconNoSwitch';
 import { NoSwitch } from './aggregate/NoSwitch';
@@ -116,6 +117,23 @@ export function AggregateSensor({
 	value,
 	type,
 }: AggregateProps) {
+	const [numericValue, setNumericValue] = useState(value ?? 0);
+	const isMounted = useRef(false);
+
+	useEffect(() => {
+		if (isMounted.current) {
+			fetch(`http://localhost:3000/device/${id}`, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ value: numericValue }),
+			});
+		} else {
+			isMounted.current = true;
+		}
+	}, [numericValue]);
+
 	var eleArr = subSensors.map((t) => getSensor(t));
 	return (
 		<>
@@ -128,7 +146,10 @@ export function AggregateSensor({
 								type='checkbox'
 								name='Living Room'
 								class='custom-switch-input'
-								defaultChecked={value == 1 ? true : false}
+								checked={numericValue == 1}
+								onClick={(e) =>
+									setNumericValue(e.currentTarget.checked ? 1 : 0)
+								}
 							/>
 							<span class='custom-switch-indicator'></span>
 						</label>

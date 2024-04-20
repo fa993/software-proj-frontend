@@ -36,10 +36,8 @@ export function ToggleSwitch({
 						type='checkbox'
 						name='box-1-0-undefined'
 						class='custom-switch-input'
-						checked={numericValue == 1 ? true : false}
-						onClick={(e) =>
-							setNumericValue(e.currentTarget.value == 'on' ? 1 : 0)
-						}
+						checked={numericValue == 1}
+						onClick={(e) => setNumericValue(e.currentTarget.checked ? 1 : 0)}
 					/>
 					<span class='custom-switch-indicator'></span>
 				</label>
