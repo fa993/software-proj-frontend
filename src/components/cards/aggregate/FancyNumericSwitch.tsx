@@ -1,12 +1,27 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { NumericAggregateSwitchProps } from './utils';
 
 export function FancyNumericSwitch({
+	id,
 	label,
 	icon,
 	value,
 }: NumericAggregateSwitchProps) {
 	const [selectedOption, setSelectedOption] = useState(value);
+	const isMounted = useRef(false);
+	useEffect(() => {
+		if (isMounted.current) {
+			fetch(`http://localhost:3000/device/${id}`, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ value: selectedOption }),
+			});
+		} else {
+			isMounted.current = true;
+		}
+	}, [selectedOption]);
 	return (
 		<tr>
 			<td>
