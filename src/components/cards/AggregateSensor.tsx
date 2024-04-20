@@ -38,6 +38,20 @@ function getSensor(e: Sensor) {
 			);
 		case 'click':
 			return <IconNoSwitch label={e.label} text={e.value.toString()} />;
+		case 'danger':
+			return (
+				<IconNoSwitch
+					label={e.label}
+					text={e.value.toString()}
+					isButton={false}
+					type='danger'
+					icon={e.icon}
+				/>
+			);
+		case 'option':
+			return <OptionSwitch label={e.label} icon={e.icon} />;
+		case 'fancy':
+			return <FancyNumericSwitch label={e.label} icon={e.icon} />;
 	}
 }
 

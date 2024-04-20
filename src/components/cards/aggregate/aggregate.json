@@ -36,6 +36,73 @@
 			"label": "TV",
 			"type": "click",
 			"value": "Simple Click"
+		},
+		{
+			"id": 26,
+			"label": "Second Lamp",
+			"type": "check",
+			"value": 1
+		},
+		{
+			"id": 27,
+			"label": "AC",
+			"type": "text",
+			"value": "27 °C",
+			"icon": "thermometer"
+		},
+		{
+			"id": 28,
+			"label": "AC",
+			"type": "check",
+			"value": 1
+		},
+		{
+			"id": 29,
+			"label": "AC",
+			"type": "option",
+			"value": 1,
+			"text": "auto, cool, next",
+			"icon": "gear"
+		},
+		{
+			"id": 30,
+			"label": "AC",
+			"type": "fancy",
+			"value": 1,
+			"icon": "thermometer"
+		},
+		{
+			"id": 31,
+			"label": "First Lamp",
+			"type": "check",
+			"value": 0
+		},
+		{
+			"id": 32,
+			"label": "TV Lamp",
+			"type": "check",
+			"value": 1
+		},
+		{
+			"id": 33,
+			"label": "Main Lamp",
+			"type": "range",
+			"value": 33,
+			"icon": "brightness-high"
+		},
+		{
+			"id": 34,
+			"label": "Temperature",
+			"type": "text",
+			"value": "27 °C",
+			"icon": "thermometer"
+		},
+		{
+			"id": 35,
+			"label": "Main Sensors",
+			"value": "CO Detected",
+			"icon": "exclamation-circle",
+			"type": "danger"
 		}
 	]
 }
