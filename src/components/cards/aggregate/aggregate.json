@@ -1,0 +1,41 @@
+{
+	"type": "check",
+	"label": "Living Room",
+	"value": 0,
+	"id": 20,
+	"subSensors": [
+		{
+			"id": 21,
+			"label": "TV",
+			"type": "check",
+			"value": 0
+		},
+		{
+			"id": 22,
+			"label": "TV",
+			"type": "range",
+			"icon": "volume-off",
+			"value": 5
+		},
+		{
+			"id": 23,
+			"label": "TV",
+			"type": "numeric",
+			"icon": "hash",
+			"value": 22
+		},
+		{
+			"id": 24,
+			"label": "TV",
+			"type": "text",
+			"value": "20 minutes ago",
+			"icon": "people"
+		},
+		{
+			"id": 25,
+			"label": "TV",
+			"type": "click",
+			"value": "Simple Click"
+		}
+	]
+}
