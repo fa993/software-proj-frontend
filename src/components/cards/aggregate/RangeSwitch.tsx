@@ -1,10 +1,29 @@
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { NumericAggregateSwitchProps } from './utils';
 
 export function RangeSwitch({
+	id,
 	label,
 	icon,
 	value,
 }: NumericAggregateSwitchProps) {
+	const [numericValue, setNumericValue] = useState(value ?? 0);
+	const isMounted = useRef(false);
+
+	useEffect(() => {
+		if (isMounted.current) {
+			fetch(`http://localhost:3000/device/${id}`, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ value: numericValue }),
+			});
+		} else {
+			isMounted.current = true;
+		}
+	}, [numericValue]);
+
 	return (
 		<tr>
 			<td>
@@ -19,7 +38,10 @@ export function RangeSwitch({
 						step='1'
 						min='0'
 						max='20'
-						defaultValue={value?.toString() ?? '0'}
+						value={value?.toString()}
+						onInput={(e) =>
+							setNumericValue(e.currentTarget.value as unknown as number)
+						}
 					/>
 				</div>
 			</td>

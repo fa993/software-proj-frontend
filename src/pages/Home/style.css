@@ -79,6 +79,10 @@ img:hover {
 	filter: drop-shadow(0 0 2em #673ab8aa);
 }
 
+#do-nothing:hover {
+    filter: none;
+}
+
 .card-header {
     background: none;
     padding: 0.5rem 1.5rem;
