@@ -1,6 +1,7 @@
 export interface AggregateSwitchProps {
 	label: string;
 	icon?: string;
+	id: number;
 }
 
 export interface NumericAggregateSwitchProps extends AggregateSwitchProps {

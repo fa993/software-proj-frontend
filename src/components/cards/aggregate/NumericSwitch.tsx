@@ -1,6 +1,10 @@
-import { AggregateSwitchProps } from './utils';
+import { NumericAggregateSwitchProps } from './utils';
 
-export function NumericSwitch({ label, icon }: AggregateSwitchProps) {
+export function NumericSwitch({
+	label,
+	icon,
+	value,
+}: NumericAggregateSwitchProps) {
 	return (
 		<tr>
 			<td>
@@ -15,7 +19,7 @@ export function NumericSwitch({ label, icon }: AggregateSwitchProps) {
 						step='1'
 						min='0'
 						max='99'
-						defaultValue='22'
+						defaultValue={value.toString()}
 					/>
 				</div>
 			</td>

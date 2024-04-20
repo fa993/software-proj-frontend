@@ -1,8 +1,12 @@
 import { useState } from 'preact/hooks';
-import { AggregateSwitchProps } from './utils';
+import { NumericAggregateSwitchProps } from './utils';
 
-export function FancyNumericSwitch({ label, icon }: AggregateSwitchProps) {
-	const [value, setValue] = useState(0);
+export function FancyNumericSwitch({
+	label,
+	icon,
+	value,
+}: NumericAggregateSwitchProps) {
+	const [selectedOption, setSelectedOption] = useState(value);
 	return (
 		<tr>
 			<td>
@@ -17,18 +21,18 @@ export function FancyNumericSwitch({ label, icon }: AggregateSwitchProps) {
 								<button
 									class='btn btn-outline-secondary'
 									type='button'
-									onClick={() => setValue((v) => v - 1)}
+									onClick={() => setSelectedOption((v) => v - 1)}
 								>
 									-
 								</button>
 							</div>
-							<span class='form-control text-center'>{value}</span>
+							<span class='form-control text-center'>{selectedOption}</span>
 
 							<div class='input-group-append'>
 								<button
 									class='btn btn-outline-secondary'
 									type='button'
-									onClick={() => setValue((v) => v + 1)}
+									onClick={() => setSelectedOption((v) => v + 1)}
 								>
 									+
 								</button>

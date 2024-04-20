@@ -27,23 +27,48 @@ function getSensor(e: Sensor) {
 	switch (e.type) {
 		case 'check':
 			return (
-				<ToggleSwitch label={e.label} icon={e.icon} value={e.value as number} />
+				<ToggleSwitch
+					id={e.id}
+					label={e.label}
+					icon={e.icon}
+					value={e.value as number}
+				/>
 			);
 		case 'range':
 			return (
-				<RangeSwitch label={e.label} icon={e.icon} value={e.value as number} />
+				<RangeSwitch
+					id={e.id}
+					label={e.label}
+					icon={e.icon}
+					value={e.value as number}
+				/>
 			);
 		case 'numeric':
-			return <NumericSwitch label={e.label} icon={e.icon} />;
+			return (
+				<NumericSwitch
+					id={e.id}
+					label={e.label}
+					icon={e.icon}
+					value={e.value as number}
+				/>
+			);
 		case 'text':
 			return (
-				<NoSwitch label={e.label} icon={e.icon} text={e.value.toString()} />
+				<NoSwitch
+					id={e.id}
+					label={e.label}
+					icon={e.icon}
+					text={e.value.toString()}
+				/>
 			);
 		case 'click':
-			return <IconNoSwitch label={e.label} text={e.value.toString()} />;
+			return (
+				<IconNoSwitch id={e.id} label={e.label} text={e.value.toString()} />
+			);
 		case 'danger':
 			return (
 				<IconNoSwitch
+					id={e.id}
 					label={e.label}
 					text={e.value.toString()}
 					isButton={false}
@@ -54,6 +79,7 @@ function getSensor(e: Sensor) {
 		case 'success':
 			return (
 				<IconNoSwitch
+					id={e.id}
 					label={e.label}
 					text={e.value.toString()}
 					isButton={false}
@@ -64,13 +90,22 @@ function getSensor(e: Sensor) {
 		case 'option':
 			return (
 				<OptionSwitch
+					id={e.id}
 					label={e.label}
 					icon={e.icon}
 					options={e.text?.split(',')?.map((e) => e.trim()) ?? []}
+					value={e.value as number}
 				/>
 			);
 		case 'fancy':
-			return <FancyNumericSwitch label={e.label} icon={e.icon} />;
+			return (
+				<FancyNumericSwitch
+					id={e.id}
+					label={e.label}
+					icon={e.icon}
+					value={e.value as number}
+				/>
+			);
 	}
 }
 

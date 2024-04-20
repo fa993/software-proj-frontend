@@ -1,21 +1,26 @@
 import { useState } from 'preact/hooks';
-import { AggregateSwitchProps } from './utils';
+import { NumericAggregateSwitchProps } from './utils';
 import classNames from 'classnames';
 
-interface OptionSwitchProps extends AggregateSwitchProps {
+interface OptionSwitchProps extends NumericAggregateSwitchProps {
 	options?: Array<string>;
 }
 
-export function OptionSwitch({ label, icon, options = [] }: OptionSwitchProps) {
-	const [value, setValue] = useState(0);
+export function OptionSwitch({
+	label,
+	icon,
+	value,
+	options = [],
+}: OptionSwitchProps) {
+	const [selectedOption, setSelectedOption] = useState(value);
 	var eArr = options.map((e, i) => {
 		return (
 			<button
 				className={classNames(
 					'btn btn-sm btn-secondary',
-					value == i ? 'active' : ''
+					selectedOption == i ? 'active' : ''
 				)}
-				onClick={(v) => setValue(i)}
+				onClick={(v) => setSelectedOption(i)}
 			>
 				{e}
 			</button>
