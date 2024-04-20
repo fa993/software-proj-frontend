@@ -26,9 +26,13 @@ interface AggregateProps {
 function getSensor(e: Sensor) {
 	switch (e.type) {
 		case 'check':
-			return <ToggleSwitch label={e.label} icon={e.icon} />;
+			return (
+				<ToggleSwitch label={e.label} icon={e.icon} value={e.value as number} />
+			);
 		case 'range':
-			return <RangeSwitch label={e.label} icon={e.icon} />;
+			return (
+				<RangeSwitch label={e.label} icon={e.icon} value={e.value as number} />
+			);
 		case 'numeric':
 			return <NumericSwitch label={e.label} icon={e.icon} />;
 		case 'text':
@@ -89,6 +93,7 @@ export function AggregateSensor({
 								type='checkbox'
 								name='Living Room'
 								class='custom-switch-input'
+								defaultChecked={value == 1 ? true : false}
 							/>
 							<span class='custom-switch-indicator'></span>
 						</label>

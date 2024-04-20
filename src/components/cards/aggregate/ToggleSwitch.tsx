@@ -1,9 +1,10 @@
-import { AggregateSwitchProps } from './utils';
+import { NumericAggregateSwitchProps } from './utils';
 
 export function ToggleSwitch({
 	label,
 	icon = 'toggle-off',
-}: AggregateSwitchProps) {
+	value,
+}: NumericAggregateSwitchProps) {
 	return (
 		<tr>
 			<td>
@@ -16,6 +17,7 @@ export function ToggleSwitch({
 						type='checkbox'
 						name='box-1-0-undefined'
 						class='custom-switch-input'
+						defaultChecked={value == 1 ? true : false}
 					/>
 					<span class='custom-switch-indicator'></span>
 				</label>

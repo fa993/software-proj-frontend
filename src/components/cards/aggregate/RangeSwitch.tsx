@@ -1,6 +1,10 @@
-import { AggregateSwitchProps } from './utils';
+import { NumericAggregateSwitchProps } from './utils';
 
-export function RangeSwitch({ label, icon }: AggregateSwitchProps) {
+export function RangeSwitch({
+	label,
+	icon,
+	value,
+}: NumericAggregateSwitchProps) {
 	return (
 		<tr>
 			<td>
@@ -9,7 +13,14 @@ export function RangeSwitch({ label, icon }: AggregateSwitchProps) {
 			<td>{label}</td>
 			<td class='text-right py-0'>
 				<div class='col'>
-					<input type='range' class='custom-range' step='1' min='0' max='20' />
+					<input
+						type='range'
+						class='custom-range'
+						step='1'
+						min='0'
+						max='20'
+						defaultValue={value?.toString() ?? '0'}
+					/>
 				</div>
 			</td>
 		</tr>

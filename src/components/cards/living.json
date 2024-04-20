@@ -1,7 +1,7 @@
 {
 	"type": "check",
 	"label": "Living Room",
-	"value": 0,
+	"value": 1,
 	"id": 20,
 	"subSensors": [
 		{
@@ -87,7 +87,7 @@
 			"id": 33,
 			"label": "Main Lamp",
 			"type": "range",
-			"value": 33,
+			"value": 17,
 			"icon": "brightness-high"
 		},
 		{

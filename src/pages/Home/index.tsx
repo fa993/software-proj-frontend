@@ -2,8 +2,8 @@ import { Col } from '../../components/Col';
 import { SensorCard } from '../../components/SensorCard';
 import './style.css';
 
-import lJson from '../../components/cards/aggregate/living.json';
-import pJson from '../../components/cards/aggregate/parental.json';
+import lJson from '../../components/cards/living.json';
+import pJson from '../../components/cards/parental.json';
 
 export function Home() {
 	return (
