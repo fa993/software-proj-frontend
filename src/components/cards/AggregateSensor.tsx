@@ -24,7 +24,6 @@ interface AggregateProps {
 }
 
 function getSensor(e: Sensor) {
-	console.log(e);
 	switch (e.type) {
 		case 'check':
 			return <ToggleSwitch label={e.label} icon={e.icon} />;
@@ -48,8 +47,24 @@ function getSensor(e: Sensor) {
 					icon={e.icon}
 				/>
 			);
+		case 'success':
+			return (
+				<IconNoSwitch
+					label={e.label}
+					text={e.value.toString()}
+					isButton={false}
+					type='success'
+					icon={e.icon}
+				/>
+			);
 		case 'option':
-			return <OptionSwitch label={e.label} icon={e.icon} />;
+			return (
+				<OptionSwitch
+					label={e.label}
+					icon={e.icon}
+					options={e.text?.split(',')?.map((e) => e.trim()) ?? []}
+				/>
+			);
 		case 'fancy':
 			return <FancyNumericSwitch label={e.label} icon={e.icon} />;
 	}

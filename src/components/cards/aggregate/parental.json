@@ -1,0 +1,64 @@
+{
+	"label": "Parental Room",
+	"id": 40,
+	"subSensors": [
+		{
+			"id": 41,
+			"label": "Main curtain",
+			"type": "text",
+			"icon": "sliders2-vertical",
+			"value": "30"
+		},
+		{
+			"id": 42,
+			"label": "Main curtain",
+			"type": "option",
+			"text": "Open, ⏸︎, Close",
+			"icon": "sliders2-vertical",
+			"value": 0
+		},
+		{
+			"id": 43,
+			"label": "Main curtain",
+			"type": "option",
+			"text": "Open, ⏸︎, Close",
+			"icon": "sliders2-vertical",
+			"value": 0
+		},
+		{
+			"id": 44,
+			"label": "Main curtain",
+			"type": "text",
+			"value": "30 %",
+			"icon": "sliders2-vertical"
+		},
+		{
+			"id": 45,
+			"label": "Thermostat",
+			"type": "fancy",
+			"icon": "thermometer",
+			"value": 33
+		},
+		{
+			"id": 46,
+			"label": "Water Leak",
+			"value": "Yes",
+			"icon": "droplet",
+			"type": "danger"
+		},
+		{
+			"id": 47,
+			"label": "Smoke Sensor",
+			"value": "Active",
+			"icon": "cloud-haze2",
+			"type": "danger"
+		},
+		{
+			"id": 48,
+			"label": "Light Sensor",
+			"value": "Active",
+			"icon": "brightness-high",
+			"type": "success"
+		}
+	]
+}

@@ -61,7 +61,7 @@
 			"label": "AC",
 			"type": "option",
 			"value": 1,
-			"text": "auto, cool, next",
+			"text": "Auto, Cool, Heat",
 			"icon": "gear"
 		},
 		{

@@ -8,10 +8,9 @@ import { AggregateSensor } from './cards/AggregateSensor';
 import { PictureSensor } from './cards/PictureSensor';
 import { UserSensor } from './cards/UserSensor';
 
-import lJson from './cards/aggregate/aggregate.json';
-
 export function SensorCard({ props }) {
 	var a;
+	var lJson = props.json;
 	switch (props.type) {
 		case 'room-temp':
 			a = <TempSensor />;

@@ -2,6 +2,9 @@ import { Col } from '../../components/Col';
 import { SensorCard } from '../../components/SensorCard';
 import './style.css';
 
+import lJson from '../../components/cards/aggregate/living.json';
+import pJson from '../../components/cards/aggregate/parental.json';
+
 export function Home() {
 	return (
 		<div class='page-main'>
@@ -17,11 +20,12 @@ export function Home() {
 									<SensorCard props={{ type: 'exterior' }} />
 								</Col>
 								<Col>
-									<SensorCard props={{ type: 'aggregate' }} />
+									<SensorCard props={{ type: 'aggregate', json: lJson }} />
 								</Col>
 								<Col>
 									<SensorCard props={{ type: 'picture' }} />
 									<SensorCard props={{ type: 'user' }} />
+									<SensorCard props={{ type: 'aggregate', json: pJson }} />
 								</Col>
 							</div>
 						</div>

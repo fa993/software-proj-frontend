@@ -2,8 +2,25 @@ import { useState } from 'preact/hooks';
 import { AggregateSwitchProps } from './utils';
 import classNames from 'classnames';
 
-export function OptionSwitch({ label, icon }: AggregateSwitchProps) {
-	const [value, setValue] = useState(1);
+interface OptionSwitchProps extends AggregateSwitchProps {
+	options?: Array<string>;
+}
+
+export function OptionSwitch({ label, icon, options = [] }: OptionSwitchProps) {
+	const [value, setValue] = useState(0);
+	var eArr = options.map((e, i) => {
+		return (
+			<button
+				className={classNames(
+					'btn btn-sm btn-secondary',
+					value == i ? 'active' : ''
+				)}
+				onClick={(v) => setValue(i)}
+			>
+				{e}
+			</button>
+		);
+	});
 	return (
 		<tr>
 			<td>
@@ -13,33 +30,7 @@ export function OptionSwitch({ label, icon }: AggregateSwitchProps) {
 			<td class='py-0'>
 				<div class='d-flex justify-content-end'>
 					<div class='btn-group' role='group'>
-						<button
-							className={classNames(
-								'btn btn-sm btn-secondary',
-								value == 0 ? 'active' : ''
-							)}
-							onClick={(v) => setValue(0)}
-						>
-							Auto
-						</button>
-						<button
-							className={classNames(
-								'btn btn-sm btn-secondary',
-								value == 1 ? 'active' : ''
-							)}
-							onClick={(v) => setValue(1)}
-						>
-							Cool
-						</button>
-						<button
-							className={classNames(
-								'btn btn-sm btn-secondary',
-								value == 2 ? 'active' : ''
-							)}
-							onClick={(v) => setValue(2)}
-						>
-							Heat
-						</button>
+						{eArr}
 					</div>
 				</div>
 			</td>
