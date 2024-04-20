@@ -9,6 +9,7 @@ export function FancyNumericSwitch({
 }: NumericAggregateSwitchProps) {
 	const [selectedOption, setSelectedOption] = useState(value);
 	const isMounted = useRef(false);
+
 	useEffect(() => {
 		if (isMounted.current) {
 			fetch(`http://localhost:3000/device/${id}`, {
@@ -22,6 +23,7 @@ export function FancyNumericSwitch({
 			isMounted.current = true;
 		}
 	}, [selectedOption]);
+
 	return (
 		<tr>
 			<td>

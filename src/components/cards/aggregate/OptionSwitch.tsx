@@ -1,4 +1,4 @@
-import { useState } from 'preact/hooks';
+import { useEffect, useRef, useState } from 'preact/hooks';
 import { NumericAggregateSwitchProps } from './utils';
 import classNames from 'classnames';
 
@@ -7,12 +7,29 @@ interface OptionSwitchProps extends NumericAggregateSwitchProps {
 }
 
 export function OptionSwitch({
+	id,
 	label,
 	icon,
 	value,
 	options = [],
 }: OptionSwitchProps) {
 	const [selectedOption, setSelectedOption] = useState(value);
+	const isMounted = useRef(false);
+
+	useEffect(() => {
+		if (isMounted.current) {
+			fetch(`http://localhost:3000/device/${id}`, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ value: selectedOption }),
+			});
+		} else {
+			isMounted.current = true;
+		}
+	}, [selectedOption]);
+
 	var eArr = options.map((e, i) => {
 		return (
 			<button
