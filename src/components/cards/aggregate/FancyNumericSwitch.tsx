@@ -33,7 +33,7 @@ export function FancyNumericSwitch({
 			<td class='py-0'>
 				<div class='d-flex justify-content-end'>
 					<div class='d-flex'>
-						<div class='input-group thermostatHorizontalControls__vn+0s'>
+						<div class='input-group'>
 							<div class='input-group-prepend'>
 								<button
 									class='btn btn-outline-secondary'
